@@ -1,0 +1,365 @@
+question_id,selected_answer,correct,prompt_delay_used
+1729042110634,images/animal3.jpeg,True,1.5
+1729042125758,images/animal3.jpeg,True,5
+1729042149295,images/animal3.jpeg,True,1.5
+1729042294031,images/animal3.jpeg,True,3
+1729044342835,images/animal3.jpeg,True,0
+1729044343535,images/animal3.jpeg,True,0
+1729044345273,Images/vehicle5.jpeg,False,0
+1729044345703,Images/vehicle5.jpeg,False,0
+1729044346186,Images/vehicle5.jpeg,False,0
+1729044346475,Images/vehicle5.jpeg,False,0
+1729044347080,Images/vehicle5.jpeg,False,0
+1729044347224,Images/vehicle5.jpeg,False,0
+1729044347891,Images/vehicle5.jpeg,False,0
+1729044348379,Images/vehicle5.jpeg,False,0
+1729044349332,images/animal3.jpeg,True,0
+1729044349492,images/animal3.jpeg,True,0
+1729044350084,images/animal3.jpeg,True,0
+1729044350340,images/animal3.jpeg,True,0
+1729044351479,Images/vehicle5.jpeg,False,0
+1729044351812,Images/vehicle5.jpeg,False,0
+1729044352539,images/animal27.jpeg,False,0
+1729044352957,images/animal27.jpeg,False,0
+1729044354860,Images/animal12.jpeg,False,0
+1729044355173,Images/animal12.jpeg,False,0
+1729044444676,Images/animal12.jpeg,False,0
+1729044445066,Images/animal12.jpeg,False,0
+1729044446605,images/animal27.jpeg,False,0
+1729044446941,images/animal27.jpeg,False,0
+1729044460088,Images/plant5.jpeg,False,0
+1729044460495,Images/plant5.jpeg,False,0
+1729044460934,Images/plant5.jpeg,False,0
+1729044461120,Images/plant5.jpeg,False,0
+1729044461272,Images/plant5.jpeg,False,0
+1729044462465,images/vehicle1.jpeg,False,0
+1729044462721,images/vehicle1.jpeg,False,0
+1729044462881,images/vehicle1.jpeg,False,0
+1729044464473,Images/animal9.jpeg,False,0
+1729044465283,Images/vehicle3.jpeg,False,0
+1729044466041,images/animal3.jpeg,True,0
+1729044466176,images/animal3.jpeg,True,0
+1729044466770,images/animal3.jpeg,True,0
+1729044467643,images/vehicle10.jpeg,False,0
+1729044468435,Images/kitchen3.jpeg,False,0
+1729044469346,Images/animal21.jpeg,False,0
+1729044470635,Images/vehicle8.jpeg,False,0
+1729044471297,Images/animal21.jpeg,False,0
+1729044471459,Images/animal21.jpeg,False,0
+1729044500607,images/animal3.jpeg,True,0
+1729044501286,images/animal3.jpeg,True,0
+1729044502270,images/animal3.jpeg,True,0
+1729044502591,images/animal3.jpeg,True,0
+1729044503327,images/animal3.jpeg,True,0
+1729044503718,images/animal3.jpeg,True,0
+1729044650589,images/animal3.jpeg,True,0
+1729044651453,images/animal3.jpeg,True,0
+1729044652661,Images/food1.jpeg,False,0
+1729044653173,Images/food1.jpeg,False,0
+1729044653780,images/animal3.jpeg,True,0
+1729044654271,images/animal3.jpeg,True,0
+1729044654773,Images/utensil1.jpeg,False,0
+1729044655317,Images/utensil1.jpeg,False,0
+1729044655971,images/animal3.jpeg,True,0
+1729044657014,images/animal3.jpeg,True,0
+1729044657798,images/animal3.jpeg,True,0
+1729044658638,images/animal3.jpeg,True,0
+1729044661084,Images/animal8.jpeg,False,0
+1729044661750,Images/animal8.jpeg,False,0
+1729044666078,images/animal3.jpeg,True,0
+1729044667790,images/animal3.jpeg,True,0
+1729044668861,images/animal3.jpeg,True,0
+1729044670127,images/animal3.jpeg,True,0
+1729044672534,images/animal3.jpeg,True,0
+1729044673127,images/animal3.jpeg,True,0
+1729044673728,images/animal3.jpeg,True,0
+1729044674214,images/animal3.jpeg,True,0
+1729044678013,images/animal3.jpeg,True,0
+1729044679693,images/animal3.jpeg,True,0
+1729044787511,images/animal3.jpeg,True,0
+1729044788488,images/animal3.jpeg,True,0
+1729044788920,images/animal3.jpeg,True,0
+1729044789262,images/animal3.jpeg,True,0
+1729045697328,images/animal3.jpeg,True,0
+1729045697806,images/animal3.jpeg,True,0
+1729045698709,images/animal3.jpeg,True,0
+1729045698943,images/animal3.jpeg,True,0
+1729045699799,Images/plant4.jpeg,False,0
+1729045700006,Images/plant4.jpeg,False,0
+1729045700815,Images/plant4.jpeg,False,0
+1729045700998,Images/plant4.jpeg,False,0
+1729045701684,Images/plant4.jpeg,False,0
+1729045837779,images/animal3.jpeg,True,0
+1729045838181,images/animal3.jpeg,True,0
+1729045839389,images/animal3.jpeg,True,0
+1729045840229,Images/plant4.jpeg,False,0
+1729045840750,images/animal3.jpeg,True,0
+1729045841389,images/animal3.jpeg,True,0
+1729045841662,images/animal3.jpeg,True,0
+1729045842631,images/animal3.jpeg,True,0
+1729045843199,images/animal3.jpeg,True,0
+1729045844020,images/animal3.jpeg,True,0
+1729045844295,images/animal3.jpeg,True,0
+1729045845063,images/animal3.jpeg,True,0
+1729045846951,images/animal3.jpeg,True,0
+1729045885997,images/animal3.jpeg,True,0
+1729045886476,images/animal3.jpeg,True,0
+1729045886762,images/animal3.jpeg,True,0
+1729045886932,images/animal3.jpeg,True,0
+1729045887096,images/animal3.jpeg,True,0
+1729045887677,images/animal3.jpeg,True,0
+1729045888229,images/animal3.jpeg,True,0
+1729045888651,images/animal3.jpeg,True,0
+1729045889197,images/animal3.jpeg,True,0
+1729045889364,images/animal3.jpeg,True,0
+1729045889900,images/animal3.jpeg,True,0
+1729045890075,images/animal3.jpeg,True,0
+1729045890245,images/animal3.jpeg,True,0
+1729045890403,images/animal3.jpeg,True,0
+1729045891197,images/animal3.jpeg,True,0
+1729045891910,images/animal3.jpeg,True,0
+1729045979803,images/food3.jpeg,False,0
+1729045979971,images/food3.jpeg,False,0
+1729045980670,images/food3.jpeg,False,0
+1729045981246,images/food3.jpeg,False,0
+1729045981981,images/food3.jpeg,False,0
+1729045982381,images/food3.jpeg,False,0
+1729045983309,images/food3.jpeg,False,0
+1729045983919,images/food3.jpeg,False,0
+1729046081261,images/animal24.jpeg,True,0
+1729046081708,images/animal24.jpeg,True,0
+1729046082069,images/animal24.jpeg,True,0
+1729046082229,images/animal24.jpeg,True,0
+1729046082429,images/animal24.jpeg,True,0
+1729046082581,images/animal24.jpeg,True,0
+1729046100485,Images/vehicle4.jpeg,False,0
+1729046100932,Images/vehicle4.jpeg,False,0
+1729046102652,Images/vehicle2.jpeg,False,0
+1729046102868,Images/vehicle2.jpeg,False,0
+1729046480648,images/animal3.jpeg,True,0
+1729046481346,images/animal3.jpeg,True,0
+1729046481871,Images/animal2.jpeg,False,0
+1729046482600,Images/animal12.jpeg,False,0
+1729046483047,Images/plant7.jpeg,False,0
+1729046484296,Images/plant7.jpeg,False,0
+1729046524202,Images/animal23.jpeg,False,0
+1729046525096,Images/kitchen3.jpeg,False,0
+1729046525698,Images/vehicle5.jpeg,False,0
+1729046526290,images/animal25.jpeg,True,0
+1729046528163,Images/animal4.jpeg,False,0
+1729046528722,Images/animal11.jpeg,False,0
+1729046529218,Images/vehicle2.jpeg,False,0
+1729046529690,Images/animal9.jpeg,False,0
+1729046530178,Images/plant3.jpeg,False,0
+1729046713259,images/animal3.jpeg,True,0
+1729046713777,Images/animal19.jpeg,True,0
+1729046714432,images/animal27.jpeg,False,0
+1729046714832,Images/animal17.jpeg,False,0
+1729046715344,Images/animal15.jpeg,False,0
+1729046715825,images/animal26.jpeg,False,0
+1729046716328,Images/plant6.jpeg,False,0
+1729046716769,Images/vehicle6.jpeg,False,0
+1729046717241,Images/plant3.jpeg,False,0
+1729046751522,Images/plant4.jpeg,False,0
+1729046752042,Images/plant4.jpeg,False,0
+1729046752546,images/vehicle1.jpeg,False,0
+1729046753009,Images/food1.jpeg,False,0
+1729046753450,Images/vehicle4.jpeg,False,0
+1729046765634,Images/animal4.jpeg,False,0
+1729046766185,Images/animal18.jpeg,False,0
+1729046766593,Images/animal20.jpeg,False,0
+1729046767073,Images/animal6.jpeg,False,0
+1729046800502,images/animal25.jpeg,False,0
+1729046802173,Images/animal23.jpeg,False,0
+1729046813060,images/animal25.jpeg,True,0
+1729046813684,Images/animal9.jpeg,False,0
+1729046814120,Images/plant2.jpeg,False,0
+1729046814548,images/food3.jpeg,False,0
+1729046838028,images/animal25.jpeg,True,0
+1729046838492,Images/animal23.jpeg,False,0
+1729046839050,Images/animal6.jpeg,False,0
+1729046839525,Images/animal14.jpeg,False,0
+1729046849727,images/animal1.jpeg,True,0
+1729046850359,Images/animal23.jpeg,False,0
+1729046850766,Images/kitchen3.jpeg,False,0
+1729046851281,Images/furniture1.jpeg,False,0
+1729046902429,images/animal3.jpeg,True,0
+1729046902907,images/animal24.jpeg,False,0
+1729046909403,Images/animal4.jpeg,False,0
+1729046909835,images/animal3.jpeg,False,0
+1729046910259,Images/plant6.jpeg,False,0
+1729046910698,Images/food2.jpeg,False,0
+1729046979607,Images/vehicle3.jpeg,True,0
+1729046980933,images/animal3.jpeg,True,0
+1729047072707,images/animal3.jpeg,True,0
+1729047073667,Images/vehicle3.jpeg,True,0
+1729047074284,images/animal25.jpeg,True,0
+1729047200973,images/animal3.jpeg,True,0
+1729047201467,Images/plant2.jpeg,False,0
+1729047201947,images/vehicle10.jpeg,False,0
+1729047202459,Images/animal21.jpeg,False,0
+1729047494332,images/animal3.jpeg,True,0
+1729047494834,images/animal25.jpeg,True,0
+1729047495257,Images/animal21.jpeg,True,0
+1729047495746,Images/vehicle2.jpeg,False,0
+1729048129762,Images/utensil2.jpeg,False,2800
+1729048157299,Images/animal4.jpeg,False,400
+1729048157789,Images/animal4.jpeg,False,400
+1729048158443,Images/animal2.jpeg,False,400
+1729048158868,Images/animal2.jpeg,False,400
+1729048159237,Images/animal2.jpeg,False,400
+1729048159868,Images/utensil1.jpeg,False,400
+1729048160388,Images/utensil1.jpeg,False,400
+1729048161172,Images/vehicle3.jpeg,True,400
+1729048532468,images/animal3.jpeg,True,1000
+1729048534050,images/animal24.jpeg,False,1000
+1729069422565,images/animal3.jpeg,True,1000
+1729071042031,images/animal3.jpeg,True,0
+1729071042597,images/animal3.jpeg,True,0
+1729071043134,images/food3.jpeg,False,0
+1729071043639,Images/utensil2.jpeg,False,0
+1729071044447,images/vehicle11.jpeg,False,0
+1729072121720,images/animal3.jpeg,True,0
+1729072122229,Images/animal4.jpeg,False,0
+1729072122709,Images/vehicle4.jpeg,False,0
+1729072123190,Images/animal6.jpeg,False,0
+1729073132639,images/animal3.jpeg,True,0.5
+1729073567954,images/animal3.jpeg,True,0
+1729073568497,Images/animal9.jpeg,False,0
+1729073758950,images/animal25.jpeg,True,0
+1729073759814,images/animal25.jpeg,True,0
+1729074961377,images/animal24.jpeg,False,0
+1729074962224,Images/animal12.jpeg,False,0
+1729074962985,Images/utensil2.jpeg,False,0
+1729074964242,images/vehicle10.jpeg,False,0
+1729074967340,images/animal3.jpeg,True,0
+1729074968998,Images/animal22.jpeg,False,0
+1729079447943,images/food3.jpeg,,0
+1729079448897,images/food3.jpeg,,0
+1729100898981,Images/animal12.jpeg,True,3200
+1729101334967,images/animal24.jpeg,True,2500
+1729101336230,images/animal27.jpeg,True,2500
+1729101336719,Images/animal12.jpeg,True,2500
+1729101337367,images/animal3.jpeg,True,2500
+1729126279854,images/animal24.jpeg,True,0
+1729126280192,images/animal24.jpeg,True,0
+1729126978405,images/animal3.jpeg,hover,True,"['pet', '', 'cat', 'animal']",0
+1729126978435,Images/kitchen1.jpeg,hover,False,"['', 'cooking', 'hot', 'kitchen']",0
+1729126978669,images/animal3.jpeg,hover,True,"['pet', '', 'cat', 'animal']",0
+1729126979204,Images/kitchen1.jpeg,hover,False,"['', 'cooking', 'hot', 'kitchen']",0
+1729126979302,Images/animal16.jpeg,hover,False,"['', 'white', 'bird', 'duck']",0
+1729126979535,Images/animal16.jpeg,hover,False,"['', 'white', 'bird', 'duck']",0
+1729126979569,Images/vehicle7.jpeg,hover,False,"['vehicle', '', 'train', 'rail']",0
+1729126979685,images/animal3.jpeg,hover,True,"['pet', '', 'cat', 'animal']",0
+1729126979802,Images/vehicle7.jpeg,hover,False,"['vehicle', '', 'train', 'rail']",0
+1729126980069,images/animal3.jpeg,hover,True,"['pet', '', 'cat', 'animal']",0
+1729126989140,images/animal25.jpeg,hover,False,"['', 'big', 'elephant', 'animal']",0
+1729126989235,images/animal3.jpeg,hover,False,"['pet', '', 'cat', 'animal']",0
+1729126989619,Images/plant3.jpeg,hover,False,"['', 'tree', 'plant']",0
+1729126989787,Images/plant7.jpeg,hover,False,"['', 'yellow', 'flower', 'plant']",0
+1729126989902,images/animal25.jpeg,hover,False,"['', 'big', 'elephant', 'animal']",0
+1729126990003,Images/plant7.jpeg,hover,False,"['', 'yellow', 'flower', 'plant']",0
+1729126990202,Images/plant3.jpeg,hover,False,"['', 'tree', 'plant']",0
+1729126990235,images/animal3.jpeg,hover,False,"['pet', '', 'cat', 'animal']",0
+1729127033570,Images/animal4.jpeg,hover,False,"['reptile', '', 'tortoise', 'animal']",0
+1729127033602,Images/vehicle4.jpeg,hover,False,"['vehicle', '', 'airplane']",0
+1729127039022,Images/vehicle5.jpeg,hover,False,"['vehicle', '', 'big', 'monstertruck']",0
+1729127039070,Images/furniture2.jpeg,hover,False,"['table', 'furniture', '']",0
+1729127039586,Images/animal19.jpeg,hover,False,"['pet', '', 'dog', 'brown']",0
+1729127040687,Images/animal19.jpeg,hover,False,"['pet', '', 'dog', 'brown']",0
+1729127045686,Images/animal19.jpeg,hover,False,"['pet', '', 'dog', 'brown']",0
+1729127045952,Images/furniture2.jpeg,hover,False,"['table', 'furniture', '']",0
+1729127640416,Images/animal19.jpeg,drag,True,"['brown', 'dog', 'pet', '']",0
+1729127643414,Images/vehicle3.jpeg,click,False,"['car', '', 'sportscar', 'vehicle']",0
+1729127646880,Images/animal17.jpeg,click,False,"['', 'hamster', 'fluffy', 'pet']",0
+1729127647345,Images/furniture2.jpeg,click,False,"['', 'table', 'furniture']",0
+1729127659269,Images/animal19.jpeg,click,False,"['brown', 'dog', 'pet', '']",0
+1729127661483,Images/animal19.jpeg,drag,True,"['brown', 'dog', 'pet', '']",0
+1729127663368,Images/furniture1.jpeg,click,False,"['', 'chair', 'furniture']",0
+1729128614092,images/animal3.jpeg,click,,"['', 'animal', 'cat', 'pet']",0
+1729128615713,images/animal3.jpeg,drag,,"['', 'animal', 'cat', 'pet']",0
+1729128617087,images/animal3.jpeg,click,,"['', 'animal', 'cat', 'pet']",0
+1729130402149,images/animal24.jpeg,drag,True,"['animal', '', 'pet', 'dog']",0
+1729130403013,Images/animal9.jpeg,drag,False,"['animal', 'ant', '', 'bug', 'insect']",0
+1729130421188,Images/kitchen1.jpeg,drag,False,"['', 'cooking', 'kitchen', 'hot']",0
+1729130421707,Images/animal9.jpeg,drag,False,"['animal', 'ant', '', 'bug', 'insect']",0
+1729130422164,Images/food1.jpeg,drag,False,"['', 'corn', 'food']",0
+1729130422700,images/animal24.jpeg,drag,True,"['animal', '', 'pet', 'dog']",0
+1729130721203,images/animal3.jpeg,click,True,"['animal', '', 'pet', 'cat']",0
+1729130730624,Images/vehicle4.jpeg,click,False,"['', 'airplane', 'vehicle']",0
+1729132090117,Images/animal19.jpeg,drag,True,"['brown', 'pet', 'dog', '']",0
+1729132094716,Images/animal19.jpeg,drag,True,"['brown', 'pet', 'dog', '']",0
+1729132096833,Images/animal19.jpeg,drag,True,"['brown', 'pet', 'dog', '']",0
+1729132426270,images/animal3.jpeg,click,True,"['', 'pet', 'cat', 'animal']",0
+1729132426710,Images/animal19.jpeg,click,True,"['brown', 'pet', 'dog', '']",0
+1729132440437,Images/animal19.jpeg,click,True,"['brown', 'pet', 'dog', '']",0
+1729132442734,images/animal3.jpeg,drag,True,"['', 'pet', 'cat', 'animal']",0
+1729132858941,Images/animal19.jpeg,click,True,"['', 'brown', 'pet', 'dog']",0
+1729132907339,Images/vehicle7.jpeg,click,False,"['', 'train', 'rail', 'vehicle']",0
+1729132927570,images/food6.jpeg,click,False,"['', 'fruit', 'food', 'watermelon']",0
+1729132946768,images/animal1.jpeg,click,False,"['bug', '', 'spider', 'small']",0
+1729132948679,Images/animal9.jpeg,click,False,"['', 'animal', 'ant', 'insect', 'bug']",0
+1729132950392,Images/animal8.jpeg,click,True,"['', 'animal', 'mammal', 'elephant', 'huge']",0
+1729132991787,Images/kitchen3.jpeg,click,False,"['cooking', '', 'knife', 'pointy', 'kitchen', 'sharp', 'utensil']",0
+1729132992660,images/animal3.jpeg,click,True,"['', 'animal', 'pet', 'cat']",0
+1729132993475,Images/plant5.jpeg,click,False,"['green', '', 'tree', 'plant']",0
+1729132993891,Images/plant4.jpeg,click,False,"['green', '', 'tree', 'plant']",0
+1729133949367,images/animal3.jpeg,click,True,"['', 'animal', 'pet', 'cat']",0
+1729133991082,images/animal3.jpeg,drag,True,"['', 'animal', 'pet', 'cat']",0
+1729133993866,Images/animal19.jpeg,drag,True,"['', 'dog', 'brown', 'pet']",0
+1729133999470,Images/animal15.jpeg,drag,False,"['', 'bird', 'owl']",0
+1729134000591,images/food6.jpeg,drag,False,"['', 'watermelon', 'fruit', 'food']",0
+1729134142311,Images/animal12.jpeg,click,True,"['', 'dog', 'fluffy', 'mammal', 'pet']",0
+1729165273349,Images/animal19.jpeg,click,True,"['', 'pet', 'dog', 'brown']",0
+1729165274955,Images/animal19.jpeg,drag,False,"['', 'pet', 'dog', 'brown']",0
+1729165973406,Images/animal12.jpeg,click,True,"['', 'mammal', 'dog', 'pet', 'fluffy']",0
+1729165976327,Images/kitchen3.jpeg,click,False,"['', 'kitchen', 'knife', 'utensil', 'cooking', 'sharp', 'pointy']",0
+1729166057396,images/animal24.jpeg,drag,True,"['', 'dog', 'animal', 'pet']",0
+1729166059096,Images/animal2.jpeg,click,False,"['', 'animal', 'reptile', 'snake']",0
+1729166059673,Images/animal22.jpeg,click,False,"['mammal', 'big', 'hippo', '']",0
+1729166060410,Images/animal16.jpeg,click,False,"['', 'duck', 'bird', 'white']",0
+1729166060994,images/animal24.jpeg,click,True,"['', 'dog', 'animal', 'pet']",0
+1729166070749,images/animal3.jpeg,click,True,"['cat', '', 'animal', 'pet']",0
+1729166164351,images/animal24.jpeg,click,True,"['', 'dog', 'animal', 'pet']",0
+1729166165925,images/animal24.jpeg,drag,True,"['', 'dog', 'animal', 'pet']",0
+1729166258074,Images/animal12.jpeg,click,True,"['', 'mammal', 'dog', 'pet', 'fluffy']",0
+1729166258907,images/animal24.jpeg,click,True,"['', 'dog', 'animal', 'pet']",0
+1729168015863,images/animal24.jpeg,click,True,"['animal', '', 'dog', 'pet']",0
+1729168027951,images/animal3.jpeg,drag,True,"['animal', 'cat', 'pet', '']",0
+1729168029651,Images/plant4.jpeg,click,False,"['', 'plant', 'green', 'tree']",0
+1729168688703,images/animal3.jpeg,click,True,"['', 'animal', 'pet', 'cat']",0
+1729168690381,images/animal3.jpeg,drag,True,"['', 'animal', 'pet', 'cat']",0
+1729169306951,Images/animal19.jpeg,click,True,"['pet', '', 'dog', 'brown']",0
+1729169308137,Images/animal19.jpeg,drag,True,"['pet', '', 'dog', 'brown']",0
+1729169324262,images/vehicle10.jpeg,click,False,"['', 'vehicle', 'ambulance']",1000
+1729169325062,Images/animal19.jpeg,click,True,"['pet', '', 'dog', 'brown']",1000
+1729169325549,images/animal3.jpeg,click,False,"['pet', '', 'cat', 'animal']",1000
+1729169326030,Images/vehicle8.jpeg,click,False,"['garbage truck', 'vehicle', '']",1000
+1729171989916,Images/animal12.jpeg,drag,True,"['', 'mammal', 'dog', 'pet', 'fluffy']",0
+1729171991627,Images/food2.jpeg,click,False,"['', 'apple', 'fruit', 'red']",0
+1729172703109,images/animal3.jpeg,click,True,"['', 'cat', 'animal', 'pet']",3000
+1729172704181,images/animal3.jpeg,click,True,"['', 'cat', 'animal', 'pet']",3000
+1729172704799,Images/animal2.jpeg,click,False,"['', 'snake', 'reptile', 'animal']",3000
+1729172719039,images/animal3.jpeg,click,True,"['', 'cat', 'animal', 'pet']",0
+1729172720415,images/animal3.jpeg,drag,True,"['', 'cat', 'animal', 'pet']",0
+1729175455319,images/animal3.jpeg,click,True,"['', 'pet', 'cat', 'animal']",False
+2024-10-17T14:38:51.897Z,images/animal3.jpeg,click,True,1189,"['', 'pet', 'cat', 'animal']","{'enable_prompting': True, 'use_prompt_delay': False, 'prompt_delay': 0, 'prompt_fade': False, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.4, 'highlight_color': '#28a745'}"
+2024-10-17T14:46:42.987Z,Images/utensil1.jpeg,click,False,2769,"['', 'spoon', 'silverware', 'utensil']","{'enable_prompting': False, 'use_prompt_delay': False, 'prompt_delay': 0, 'prompt_fade': False, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.4, 'highlight_color': '#28a745', 'enable_reinforcement': True}"
+2024-10-17T14:46:43.891Z,images/animal3.jpeg,click,True,3673,"['animal', 'pet', 'cat', '']","{'enable_prompting': False, 'use_prompt_delay': False, 'prompt_delay': 0, 'prompt_fade': False, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.4, 'highlight_color': '#28a745', 'enable_reinforcement': True}"
+2024-10-17T17:35:28.970Z,images/animal3.jpeg,click,True,3114,"['', 'animal', 'pet', 'cat']","{'enable_prompting': False, 'use_prompt_delay': False, 'prompt_delay': 0, 'prompt_fade': False, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.4, 'highlight_color': '#28a745', 'enable_reinforcement': False}"
+2024-10-17T17:35:30.005Z,images/animal3.jpeg,click,True,4150,"['', 'animal', 'pet', 'cat']","{'enable_prompting': False, 'use_prompt_delay': False, 'prompt_delay': 0, 'prompt_fade': False, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.4, 'highlight_color': '#28a745', 'enable_reinforcement': False}"
+2024-10-17T17:35:30.495Z,images/animal3.jpeg,click,True,4640,"['', 'animal', 'pet', 'cat']","{'enable_prompting': False, 'use_prompt_delay': False, 'prompt_delay': 0, 'prompt_fade': False, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.4, 'highlight_color': '#28a745', 'enable_reinforcement': False}"
+2024-10-17T17:35:30.665Z,images/animal3.jpeg,click,True,4810,"['', 'animal', 'pet', 'cat']","{'enable_prompting': False, 'use_prompt_delay': False, 'prompt_delay': 0, 'prompt_fade': False, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.4, 'highlight_color': '#28a745', 'enable_reinforcement': False}"
+2024-10-17T17:36:33.596Z,Images/animal12.jpeg,click,True,37000,"['', 'dog', 'pet', 'fluffy', 'mammal']","{'enable_prompting': False, 'use_prompt_delay': False, 'prompt_delay': 0, 'prompt_fade': False, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.4, 'highlight_color': '#28a745', 'enable_reinforcement': True}"
+2024-10-17T17:36:35.625Z,Images/animal2.jpeg,click,False,39029,"['', 'animal', 'reptile', 'snake']","{'enable_prompting': False, 'use_prompt_delay': False, 'prompt_delay': 0, 'prompt_fade': False, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.4, 'highlight_color': '#28a745', 'enable_reinforcement': True}"
+2024-10-17T17:36:37.412Z,Images/animal22.jpeg,click,False,40816,"['', 'big', 'hippo', 'mammal']","{'enable_prompting': False, 'use_prompt_delay': False, 'prompt_delay': 0, 'prompt_fade': False, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.4, 'highlight_color': '#28a745', 'enable_reinforcement': True}"
+2024-10-17T17:37:19.967Z,Images/animal12.jpeg,click,True,8552,"['', 'dog', 'pet', 'fluffy', 'mammal']","{'enable_prompting': True, 'use_prompt_delay': True, 'prompt_delay': 2, 'prompt_fade': True, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.84, 'highlight_color': '#28a745', 'enable_reinforcement': True}"
+2024-10-17T17:37:20.872Z,Images/vehicle6.jpeg,click,False,9457,"['', 'jet', 'fast', 'vehicle', 'airplane']","{'enable_prompting': True, 'use_prompt_delay': True, 'prompt_delay': 2, 'prompt_fade': True, 'prompt_highlight': False, 'fade_duration': 1, 'fade_percentage': 0.84, 'highlight_color': '#28a745', 'enable_reinforcement': True}"
+2024-10-17T20:23:02.113Z,Unknown,images/animal25.jpeg,1649,highlight,Incorrect
+2024-10-17T20:23:03.015Z,Unknown,Images/vehicle4.jpeg,2551,highlight,Incorrect
+2024-10-17T20:23:03.448Z,Unknown,Images/animal14.jpeg,2984,highlight,Incorrect
+2024-10-17T20:23:03.969Z,dog,Images/animal12.jpeg,3505,highlight,Correct
+2024-10-17T20:23:43.216Z,Unknown,Images/plant4.jpeg,3634,fade,Incorrect
+2024-10-17T20:23:44.365Z,cat,images/animal3.jpeg,4783,fade,Correct
+8ac9f79d-2fab-466c-ad3c-7d45460b6f7c,1,2024-10-18T01:09:46.867Z,Unknown,images/animal26.jpeg,2722,None,Incorrect
+8ac9f79d-2fab-466c-ad3c-7d45460b6f7c,2,2024-10-18T01:09:47.950Z,cat,images/animal3.jpeg,3805,None,Correct
