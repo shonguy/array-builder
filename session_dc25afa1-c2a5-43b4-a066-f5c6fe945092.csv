@@ -1,3 +1,0 @@
-session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
-dc25afa1-c2a5-43b4-a066-f5c6fe945092,1,2024-10-27T12:59:44.690Z,Unknown,Images/animal23.jpeg,11875,fade,Incorrect
-dc25afa1-c2a5-43b4-a066-f5c6fe945092,2,2024-10-27T12:59:45.457Z,cat,images/animal3.jpeg,12642,fade,Correct

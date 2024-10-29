@@ -102,8 +102,9 @@ def home():
         behavior_data = json.loads(request.form.get('behavior_data', '{}'))
         consequence_data = json.loads(request.form.get('consequence_data', '{}'))
 
-        grid_rows = int(request.form.get('grid_rows', 2))
-        grid_cols = int(request.form.get('grid_cols', 2))
+        # **Update Default Grid Values Here**
+        grid_rows = int(request.form.get('grid_rows', 1))  # Changed default from 2 to 1
+        grid_cols = int(request.form.get('grid_cols', 3))  # Changed default from 2 to 3
         image_size = int(request.form.get('image_size', 250))
 
         selected_tags = [item['tag'] for item in antecedent_data if item['tag']]
@@ -830,13 +831,13 @@ def home():
                         <div class="number-input">
                             Number of rows: 
                             <button type='button' onclick='adjustValue("grid_rows", -1)' aria-label="Decrease rows">-</button>
-                            <input type="number" id="grid_rows" name="grid_rows" value="2" min="1" style="width: 40px; text-align: center;" readonly>
+                            <input type="number" id="grid_rows" name="grid_rows" value="1" min="1" style="width: 40px; text-align: center;" readonly>
                             <button type='button' onclick='adjustValue("grid_rows", 1)' aria-label="Increase rows">+</button>
                         </div>
                         <div class="number-input">
                             Number of columns: 
                             <button type='button' onclick='adjustValue("grid_cols", -1)' aria-label="Decrease columns">-</button>
-                            <input type="number" id="grid_cols" name="grid_cols" value="2" min="1" style="width: 40px; text-align: center;" readonly>
+                            <input type="number" id="grid_cols" name="grid_cols" value="3" min="1" style="width: 40px; text-align: center;" readonly>
                             <button type='button' onclick='adjustValue("grid_cols", 1)' aria-label="Increase columns">+</button>
                         </div>
                     </div>
