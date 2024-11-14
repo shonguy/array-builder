@@ -1,0 +1,2 @@
+session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
+d43308df-1020-4d70-b786-d72dd775be89,1,2024-11-03T01:24:30.672Z,car,Images/vehicle3.jpeg,5330,fade,Correct

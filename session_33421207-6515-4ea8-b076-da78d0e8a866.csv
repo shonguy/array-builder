@@ -1,0 +1,2 @@
+session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
+33421207-6515-4ea8-b076-da78d0e8a866,1,2024-11-08T02:39:35.868Z,fork,Images/utensil2.jpeg,4625,None,Correct

@@ -1,0 +1,6 @@
+session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
+5b7d06fa-303d-4c88-a3cc-65c27552486c,1,2024-11-08T16:26:57.538Z,giraffe,Images/animal7.jpeg,3282,None,Correct
+5b7d06fa-303d-4c88-a3cc-65c27552486c,2,2024-11-08T16:26:59.805Z,giraffe,Images/animal7.jpeg,5549,None,Correct
+5b7d06fa-303d-4c88-a3cc-65c27552486c,3,2024-11-08T16:27:02.121Z,giraffe,Images/animal7.jpeg,7865,None,Correct
+5b7d06fa-303d-4c88-a3cc-65c27552486c,4,2024-11-08T16:27:09.568Z,giraffe,Images/animal7.jpeg,15312,None,Correct
+5b7d06fa-303d-4c88-a3cc-65c27552486c,5,2024-11-08T16:27:14.075Z,giraffe,Images/animal7.jpeg,19819,None,Correct
