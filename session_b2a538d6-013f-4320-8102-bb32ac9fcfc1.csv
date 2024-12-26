@@ -1,5 +1,0 @@
-session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
-b2a538d6-013f-4320-8102-bb32ac9fcfc1,1,2024-11-08T16:29:03.580Z,rhino,Images/animal23.jpeg,4307,highlight,Correct
-b2a538d6-013f-4320-8102-bb32ac9fcfc1,2,2024-11-08T16:29:05.031Z,rhino,Images/animal23.jpeg,5758,highlight,Correct
-b2a538d6-013f-4320-8102-bb32ac9fcfc1,3,2024-11-08T16:29:06.481Z,rhino,Images/animal23.jpeg,7208,highlight,Correct
-b2a538d6-013f-4320-8102-bb32ac9fcfc1,4,2024-11-08T16:29:08.242Z,rhino,Images/animal23.jpeg,8969,highlight,Correct

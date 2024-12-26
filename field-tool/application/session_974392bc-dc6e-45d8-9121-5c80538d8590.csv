@@ -1,0 +1,2 @@
+session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
+974392bc-dc6e-45d8-9121-5c80538d8590,1,2024-12-26T15:57:24.159Z,cat,images/animal3.jpeg,823,None,Correct

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form method="POST" id="gridForm">
+            <div class="form-container">
+                <div class="section">
+                    <h2>Antecedent</h2>
+                    <div id="antecedentInputs">
+                        <div class="target-input">
+                            <input type="text" name="antecedent_tag" placeholder="Enter target" required>
+                            <label><input type='checkbox' name='visible_target'> Show target name</label>
+                        </div>
+                    </div>
+                    <button type="button" id="addAntecedentBtn">Add Another Target</button>
+                    <div>
+                        <label for="image_size">Image Size (pixels):</label>
+                        <input type="number" id="image_size" name="image_size" value="250" min="50" max="1000" required>
+                    </div>
+                    <h3 style="margin-top: 20px;">Grid Configuration</h3>
+                    <div class="number-input">
+                        Number of rows: 
+                        <button type='button' onclick='adjustValue("grid_rows", -1)' aria-label="Decrease rows">-</button>
+                        <input type="number" id="grid_rows" name="grid_rows" value="1" min="1" style="width: 40px; text-align: center;" readonly>
+                        <button type='button' onclick='adjustValue("grid_rows", 1)' aria-label="Increase rows">+</button>
+                    </div>
+                    <div class="number-input">
+                        Number of columns: 
+                        <button type='button' onclick='adjustValue("grid_cols", -1)' aria-label="Decrease columns">-</button>
+                        <input type="number" id="grid_cols" name="grid_cols" value="3" min="1" style="width: 40px; text-align: center;" readonly>
+                        <button type='button' onclick='adjustValue("grid_cols", 1)' aria-label="Increase columns">+</button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Behavior</h2>
+                    <div>
+                        <label for="action_type">Action Type:</label>
+                        <select name="action_type" id="action_type" required>
+                            <option value="click">Click</option>
+                            <option value="click_and_drag">Click and Drag to Match</option>
+                            <option value="manual_data_entry">Manual Data Entry</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Consequences</h2>
+                    <div>
+                        <label>
+                            <input type="checkbox" id="enable_reinforcement" name="enable_reinforcement" checked>
+                            Enable Visual Feedback
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" id="enable_dance_animation" name="enable_dance_animation" checked>
+                            Enable Dance Animation
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" id="enable_glow" name="enable_glow">
+                            Enable Glow Effect
+                        </label>
+                    </div>
+                    <div id="advancedSettingsToggle">Show Advanced Settings</div>
+                    <div id="advancedSettingsContent">
+                        <div style="border: 1px solid #007bff; border-radius: 5px; padding: 10px; margin-top: 10px;">
+                            <h3 style="margin-top: 0;">Reinforcement Options</h3>
+                            <div>
+                                <input type='checkbox' id='enable_dance_animation' name='enable_dance_animation'>
+                                <label for='enable_dance_animation'>Enable Dance Animation on Correct Answer</label>
+                            </div>
+                        </div>
+
+                        <div style="border: 1px solid #007bff; border-radius: 5px; padding: 10px; margin-top: 10px;">
+                            <h3 style="margin-top: 0;">Prompting Options</h3>
+                            <div>
+                                <input type='checkbox' id='enable_prompting' name='enable_prompting'> Enable Prompting
+                            </div>
+                            <div id="promptingOptions" style="display:none;">
+                                <div>
+                                    <label><input type="radio" name="prompt_type" value="fade" checked> Prompt by Exclusion (Fade Incorrect Answers)</label>
+                                </div>
+                                <div>
+                                    <div id="fadePercentageContainer">
+                                        <label for="fade_percentage">Prompt Fade Percentage (%):</label>
+                                        <input type="range" id="fade_percentage" name="fade_percentage" min="0" max="100" value="40">
+                                        <span id="fade_percentage_value">40%</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label><input type="radio" name="prompt_type" value="highlight"> Prompt by Highlighting Correct Answer</label>
+                                </div>
+                                <div id="highlightColorContainer" style="display:none;">
+                                    <label for="highlight_color">Prompt Highlight Color:</label>
+                                    <select id="highlight_color" name="highlight_color">
+                                        <option value="#28a745">Green</option>
+                                        <option value="#FF0000">Red</option>
+                                        <option value="#FFA500">Orange</option>
+                                        <option value="#FFFF00">Yellow</option>
+                                        <option value="#0000FF">Blue</option>
+                                        <option value="#4B0082">Indigo</option>
+                                        <option value="#EE82EE">Violet</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type='checkbox' id='use_prompt_delay' name='use_prompt_delay'> Use Prompt Delay
+                                </div>
+                                <div>
+                                    <label for="prompt_delay">Prompt Delay (seconds):</label>
+                                    <input type="number" id="prompt_delay" name="prompt_delay" min="0" max="10" step="0.1" value="0">
+                                </div>
+                                <div>
+                                    <label for="fade_duration">Fade Duration (seconds):</label>
+                                    <input type="number" id="fade_duration" name="fade_duration" min="0.1" max="5" step="0.1" value="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="antecedent_data" name="antecedent_data" value="[]">
+            <input type="hidden" id="behavior_data" name="behavior_data" value="{}">
+            <input type="hidden" id="consequence_data" name="consequence_data" value="{}">
+            <input type="submit" value="Generate Grid">
+        </form>
+    </div>
+    <script>
+        function adjustValue(id, change) {
+            const input = document.getElementById(id);
+            const newValue = Math.max(1, parseInt(input.value) + change);
+            input.value = newValue;
+        }
+
+        document.getElementById('addAntecedentBtn').addEventListener('click', function() {
+            const antecedentInputs = document.getElementById('antecedentInputs');
+            const newInput = document.createElement('div');
+            newInput.className = 'target-input';
+            newInput.innerHTML = `
+                <input type="text" name="antecedent_tag" placeholder="Enter target" required>
+                <label><input type='checkbox' name='visible_target'> Show target name</label>
+            `;
+            antecedentInputs.appendChild(newInput);
+        });
+
+        // Auto-check 'Show target name' when 'Click and Drag to Match' is selected
+        document.getElementById('action_type').addEventListener('change', function() {
+            if (this.value === 'click_and_drag') {
+                document.querySelectorAll('input[name="visible_target"]').forEach(function(checkbox) {
+                    checkbox.checked = true;
+                    checkbox.parentElement.style.display = 'inline-block';  // Ensure visibility
+                });
+            } else if (this.value === 'manual_data_entry') {
+                // Hide 'Show target name' checkboxes
+                document.querySelectorAll('input[name="visible_target"]').forEach(function(checkbox) {
+                    checkbox.checked = false;
+                    checkbox.parentElement.style.display = 'none';
+                });
+            } else {
+                // Show 'Show target name' checkboxes
+                document.querySelectorAll('input[name="visible_target"]').forEach(function(checkbox) {
+                    checkbox.parentElement.style.display = 'inline-block';
+                });
+            }
+        });
+
+        // Show/hide prompting options
+        document.getElementById('enable_prompting').addEventListener('change', function() {
+            const promptingOptions = document.getElementById('promptingOptions');
+            promptingOptions.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Show/hide specific prompt options based on selected prompt type
+        document.querySelectorAll('input[name="prompt_type"]').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                if (this.value === 'fade') {
+                    document.getElementById('fadePercentageContainer').style.display = 'block';
+                    document.getElementById('highlightColorContainer').style.display = 'none';
+                } else if (this.value === 'highlight') {
+                    document.getElementById('fadePercentageContainer').style.display = 'none';
+                    document.getElementById('highlightColorContainer').style.display = 'block';
+                }
+            });
+        });
+
+        // Update displayed fade percentage
+        document.getElementById('fade_percentage').addEventListener('input', function() {
+            document.getElementById('fade_percentage_value').innerText = this.value + '%';
+        });
+
+        // Advanced Settings Toggle
+        document.getElementById('advancedSettingsToggle').addEventListener('click', function() {
+            const advancedContent = document.getElementById('advancedSettingsContent');
+            if (advancedContent.style.display === 'none' || advancedContent.style.display === '') {
+                advancedContent.style.display = 'block';
+                this.innerText = 'Hide Advanced Settings';
+            } else {
+                advancedContent.style.display = 'none';
+                this.innerText = 'Show Advanced Settings';
+            }
+        });
+
+        function prepareData() {
+            // Prepare antecedent data
+            const antecedentInputs = document.querySelectorAll('#antecedentInputs .target-input');
+            const antecedentData = Array.from(antecedentInputs).map(input => ({
+                tag: input.querySelector('input[name="antecedent_tag"]').value,
+                visible: input.querySelector('input[name="visible_target"]').checked
+            }));
+            document.getElementById('antecedent_data').value = JSON.stringify(antecedentData);
+
+            // Prepare behavior data
+            const behaviorData = {
+                action_type: document.getElementById('action_type').value
+            };
+            document.getElementById('behavior_data').value = JSON.stringify(behaviorData);
+
+            // Prepare consequence data
+            const consequenceData = {
+                enable_reinforcement: document.getElementById('enable_reinforcement').checked,
+                enable_dance_animation: document.getElementById('enable_dance_animation').checked,
+                enable_prompting: document.getElementById('enable_prompting').checked,
+                prompt_type: document.querySelector('input[name="prompt_type"]:checked') ? document.querySelector('input[name="prompt_type"]:checked').value : '',
+                use_prompt_delay: document.getElementById('use_prompt_delay').checked,
+                prompt_delay: document.getElementById('prompt_delay').value,
+                fade_duration: document.getElementById('fade_duration').value,
+                fade_percentage: document.getElementById('fade_percentage').value,
+                highlight_color: document.getElementById('highlight_color').value
+            };
+            document.getElementById('consequence_data').value = JSON.stringify(consequenceData);
+        }
+
+        document.getElementById('gridForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            prepareData();
+            fetch('/', {
+                method: 'POST',
+                body: new FormData(this)
+            })
+            .then(response => {
+                const contentType = response.headers.get("content-type");
+                if (contentType && contentType.indexOf("application/json") !== -1) {
+                    return response.json().then(data => ({ json: data }));
+                } else {
+                    return response.text().then(text => ({ html: text }));
+                }
+            })
+            .then(data => {
+                if (data.json) {
+                    // Handle JSON response (error cases)
+                    if (data.json.error === "file_not_found" || data.json.error === "empty_file") {
+                        alert(data.json.message);
+                    } else if (data.json.error === "invalid_tag") {
+                        const inputs = document.querySelectorAll('input[name="antecedent_tag"]');
+                        const invalidTag = data.json.message.match(/'([^']+)'/);
+                        if (invalidTag && invalidTag[1]) {
+                            inputs.forEach(input => {
+                                if (input.value === invalidTag[1]) {
+                                    input.style.borderColor = 'red';
+                                }
+                            });
+                        }
+                        alert(data.json.message);
+                    } else if (data.json.error === "not_enough_images") {
+                        alert(data.json.message);
+                    } else {
+                        alert(data.json.message);
+                    }
+                } else if (data.html) {
+                    // Handle HTML response (successful grid generation)
+                    document.body.innerHTML = data.html;
+                    // After setting innerHTML, run any embedded scripts
+                    const scripts = document.body.getElementsByTagName("script");
+                    for (let script of scripts) {
+                        eval(script.innerHTML);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An unexpected error occurred. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html> 

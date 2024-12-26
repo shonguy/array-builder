@@ -1,0 +1,3 @@
+session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
+7faab85a-9210-4716-92fb-c43bf93796df,1,2024-12-26T15:40:16.529Z,cat,images/animal3.jpeg,2208,None,Correct
+7faab85a-9210-4716-92fb-c43bf93796df,2,2024-12-26T15:40:18.412Z,Unknown,images/vehicle11.jpeg,4091,None,Incorrect

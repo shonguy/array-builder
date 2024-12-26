@@ -1,2 +1,0 @@
-session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
-2ee64feb-476c-44e9-8991-9487826faa00,1,2024-11-03T01:35:16.587Z,giraffe,Images/animal7.jpeg,2707,None,Correct

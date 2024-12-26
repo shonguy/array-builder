@@ -1,0 +1,25 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.git/
+.gitignore
+.idea/
+*.log
+.DS_Store
+.aider*
+
+# Session and Data files
+session_*.csv     # Your session data files
+image_tags.csv    # Your image tags file
+
+# Local Development
+.vscode/
+.idea/
+*.log
+.DS_Store         # For Mac users
+
+# Test files
+test/
+tests/
+*.test.py

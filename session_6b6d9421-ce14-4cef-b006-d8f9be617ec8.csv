@@ -1,4 +1,0 @@
-session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
-6b6d9421-ce14-4cef-b006-d8f9be617ec8,1,2024-11-03T01:24:03.521Z,fluffy,Images/animal17.jpeg,10297,None,Correct
-6b6d9421-ce14-4cef-b006-d8f9be617ec8,2,2024-11-03T01:24:06.725Z,Unknown,Images/animal6.jpeg,13501,None,Incorrect
-6b6d9421-ce14-4cef-b006-d8f9be617ec8,3,2024-11-03T01:24:07.396Z,Unknown,images/animal25.jpeg,14172,None,Incorrect

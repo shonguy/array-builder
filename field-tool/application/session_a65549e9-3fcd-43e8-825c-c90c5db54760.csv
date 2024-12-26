@@ -1,0 +1,3 @@
+session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
+a65549e9-3fcd-43e8-825c-c90c5db54760,1,2024-12-26T15:58:37.784Z,cat,images/animal3.jpeg,1163,None,Correct
+a65549e9-3fcd-43e8-825c-c90c5db54760,2,2024-12-26T15:58:38.887Z,Unknown,Images/furniture2.jpeg,2265,None,Incorrect

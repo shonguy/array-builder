@@ -1,0 +1,4 @@
+session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
+dad0bdd9-67d8-4f6f-9c0a-225532933058,1,2024-12-26T15:32:25.728Z,cat,images/animal3.jpeg,1055,None,Correct
+dad0bdd9-67d8-4f6f-9c0a-225532933058,2,2024-12-26T15:32:26.594Z,Unknown,images/vehicle11.jpeg,1922,None,Incorrect
+dad0bdd9-67d8-4f6f-9c0a-225532933058,3,2024-12-26T15:32:27.245Z,Unknown,Images/utensil1.jpeg,2573,None,Incorrect
