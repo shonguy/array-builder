@@ -1,2 +1,0 @@
-session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
-bd46f29d-1be5-480c-8a2e-e77a36f71258,1,2024-12-26T15:43:17.897Z,cat,images/animal3.jpeg,1079,None,Correct

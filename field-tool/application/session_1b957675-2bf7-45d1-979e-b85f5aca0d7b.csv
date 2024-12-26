@@ -1,4 +1,0 @@
-session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
-1b957675-2bf7-45d1-979e-b85f5aca0d7b,1,2024-12-26T15:47:39.311Z,cat,images/animal3.jpeg,879,None,Correct
-1b957675-2bf7-45d1-979e-b85f5aca0d7b,2,2024-12-26T15:47:40.509Z,Unknown,images/food5.jpeg,2077,None,Incorrect
-1b957675-2bf7-45d1-979e-b85f5aca0d7b,3,2024-12-26T15:47:41.443Z,Unknown,Images/animal8.jpeg,3011,None,Incorrect
