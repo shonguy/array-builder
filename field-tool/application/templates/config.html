@@ -57,7 +57,7 @@
                     </div>
                     <div>
                         <label>
-                            <input type="checkbox" id="enable_dance_animation" name="enable_dance_animation" checked>
+                            <input type="checkbox" id="enable_dance_animation_main" name="enable_dance_animation">
                             Enable Dance Animation
                         </label>
                     </div>
@@ -72,8 +72,8 @@
                         <div style="border: 1px solid #007bff; border-radius: 5px; padding: 10px; margin-top: 10px;">
                             <h3 style="margin-top: 0;">Reinforcement Options</h3>
                             <div>
-                                <input type='checkbox' id='enable_dance_animation' name='enable_dance_animation'>
-                                <label for='enable_dance_animation'>Enable Dance Animation on Correct Answer</label>
+                                <input type='checkbox' id='enable_dance_animation_advanced' name='enable_dance_animation'>
+                                <label for='enable_dance_animation_advanced'>Enable Dance Animation on Correct Answer</label>
                             </div>
                         </div>
 
@@ -223,7 +223,7 @@
             // Prepare consequence data
             const consequenceData = {
                 enable_reinforcement: document.getElementById('enable_reinforcement').checked,
-                enable_dance_animation: document.getElementById('enable_dance_animation').checked,
+                enable_dance_animation: document.getElementById('enable_dance_animation_main').checked,
                 enable_prompting: document.getElementById('enable_prompting').checked,
                 prompt_type: document.querySelector('input[name="prompt_type"]:checked') ? document.querySelector('input[name="prompt_type"]:checked').value : '',
                 use_prompt_delay: document.getElementById('use_prompt_delay').checked,
