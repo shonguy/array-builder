@@ -1,0 +1,4 @@
+session_id,trial_number,timestamp,target_name,image_file_name,time_taken_ms,prompt_used,correct
+89a54499-14a3-450a-8325-e3928614e00e,1,2024-12-29T19:45:01.113Z,dog,images/animal24.jpeg,804,None,Correct
+89a54499-14a3-450a-8325-e3928614e00e,2,2024-12-29T19:45:01.594Z,fish,Images/animal18.jpeg,1285,None,Correct
+89a54499-14a3-450a-8325-e3928614e00e,3,2024-12-29T19:45:02.161Z,cat,images/animal3.jpeg,1852,None,Correct
