@@ -12,7 +12,10 @@
                     <div id="antecedentInputs">
                         <div class="target-input">
                             <input type="text" name="antecedent_tag" placeholder="Enter target" required>
-                            <label><input type='checkbox' name='visible_target'> Show target name</label>
+                            <div class="target-display-options">
+                                <label><input type='checkbox' name='visible_target'> Show target name</label>
+                                <label><input type='checkbox' name='show_sample_image'> Show sample image</label>
+                            </div>
                         </div>
                     </div>
                     <button type="button" id="addAntecedentBtn">Add Another Target</button>
@@ -143,7 +146,10 @@
             newInput.className = 'target-input';
             newInput.innerHTML = `
                 <input type="text" name="antecedent_tag" placeholder="Enter target" required>
-                <label><input type='checkbox' name='visible_target'> Show target name</label>
+                <div class="target-display-options">
+                    <label><input type='checkbox' name='visible_target'> Show target name</label>
+                    <label><input type='checkbox' name='show_sample_image'> Show sample image</label>
+                </div>
             `;
             antecedentInputs.appendChild(newInput);
         });
@@ -153,18 +159,17 @@
             if (this.value === 'click_and_drag') {
                 document.querySelectorAll('input[name="visible_target"]').forEach(function(checkbox) {
                     checkbox.checked = true;
-                    checkbox.parentElement.style.display = 'inline-block';  // Ensure visibility
+                    checkbox.parentElement.parentElement.style.display = 'flex';  // Show the target-display-options
                 });
             } else if (this.value === 'manual_data_entry') {
-                // Hide 'Show target name' checkboxes
-                document.querySelectorAll('input[name="visible_target"]').forEach(function(checkbox) {
-                    checkbox.checked = false;
-                    checkbox.parentElement.style.display = 'none';
+                // Hide target display options
+                document.querySelectorAll('.target-display-options').forEach(function(div) {
+                    div.style.display = 'none';
                 });
             } else {
-                // Show 'Show target name' checkboxes
-                document.querySelectorAll('input[name="visible_target"]').forEach(function(checkbox) {
-                    checkbox.parentElement.style.display = 'inline-block';
+                // Show target display options
+                document.querySelectorAll('.target-display-options').forEach(function(div) {
+                    div.style.display = 'flex';
                 });
             }
         });
@@ -210,7 +215,8 @@
             const antecedentInputs = document.querySelectorAll('#antecedentInputs .target-input');
             const antecedentData = Array.from(antecedentInputs).map(input => ({
                 tag: input.querySelector('input[name="antecedent_tag"]').value,
-                visible: input.querySelector('input[name="visible_target"]').checked
+                visible: input.querySelector('input[name="visible_target"]').checked,
+                show_sample: input.querySelector('input[name="show_sample_image"]').checked
             }));
             document.getElementById('antecedent_data').value = JSON.stringify(antecedentData);
 

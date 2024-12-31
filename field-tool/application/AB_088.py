@@ -170,13 +170,34 @@ def home():
         consequence_data = json.loads(request.form.get('consequence_data', '{}'))
 
         # **Update Default Grid Values Here**
-        grid_rows = int(request.form.get('grid_rows', 1))  # Changed default from 2 to 1
-        grid_cols = int(request.form.get('grid_cols', 3))  # Changed default from 2 to 3
+        grid_rows = int(request.form.get('grid_rows', 1))
+        grid_cols = int(request.form.get('grid_cols', 3))
         image_size = int(request.form.get('image_size', 250))
 
         selected_tags = [item['tag'] for item in antecedent_data if item['tag']]
         visible_tags = [item['tag'] for item in antecedent_data if item['tag'] and item['visible']]
+        show_samples = [item['tag'] for item in antecedent_data if item['tag'] and item.get('show_sample', False)]
         action_type = behavior_data.get('action_type', 'click')
+
+        # Get sample images for drop zones if needed
+        sample_images = {}
+        if show_samples:
+            print(f"Getting sample images for tags: {show_samples}")
+            for tag in show_samples:
+                matching_images = image_tags_df[
+                    image_tags_df['tags'].apply(lambda x: tag in set(x.split('|'))) |
+                    (image_tags_df['category'] == tag)
+                ]['filename'].tolist()
+                if matching_images:
+                    sample_img = random.choice(matching_images)
+                    img_base64 = convert_image_to_base64(sample_img)
+                    if img_base64:
+                        sample_images[tag] = img_base64
+                        print(f"Found sample image for {tag}: {sample_img}")
+                    else:
+                        print(f"Failed to convert sample image for {tag}: {sample_img}")
+                else:
+                    print(f"No matching images found for tag: {tag}")
 
         # Parse Consequence Data
         enable_prompting = consequence_data.get('enable_prompting', False)
@@ -184,12 +205,10 @@ def home():
         use_prompt_delay = consequence_data.get('use_prompt_delay', False) if enable_prompting else False
         prompt_delay = float(consequence_data.get('prompt_delay', 0)) if use_prompt_delay else 0
         fade_duration = float(consequence_data.get('fade_duration', 1)) if consequence_data.get('fade_duration') else 1
+        fade_percentage_input = int(consequence_data.get('fade_percentage', 40)) / 100
+        fade_opacity = 1 - fade_percentage_input
 
-        # Corrected fade_opacity calculation
-        fade_percentage_input = int(consequence_data.get('fade_percentage', 40)) / 100  # Convert to decimal
-        fade_opacity = 1 - fade_percentage_input  # Invert to get opacity
-
-        highlight_color = consequence_data.get('highlight_color', '#28a745')  # Default to green
+        highlight_color = consequence_data.get('highlight_color', '#28a745')
 
         # Reinforcement Option
         enable_reinforcement = consequence_data.get('enable_reinforcement', False)
@@ -223,7 +242,6 @@ def home():
                 img_tags = set(image_tags_df[image_tags_df['filename'] == img_path]['tags'].iloc[0].split('|'))
                 img_category = image_tags_df[image_tags_df['filename'] == img_path]['category'].iloc[0]
                 img_tags.add(img_category)
-                # Determine if the image is correct (matches any selected tag)
                 is_correct = any(tag in img_tags for tag in selected_tags)
                 data_correct = 'true' if is_correct else 'false'
                 image_data_list.append({
@@ -234,39 +252,77 @@ def home():
                     'action_type': action_type
                 })
 
-        # No sample image data needed since MTS is removed
-        sample_image_data = None
-
-        # Store prompt settings to pass to the frontend
+        # Store prompt settings
         prompt_settings = {
             'enable_prompting': enable_prompting,
             'use_prompt_delay': use_prompt_delay,
             'prompt_delay': prompt_delay,
             'prompt_type': prompt_type,
             'fade_duration': fade_duration,
-            'fade_opacity': fade_opacity,  # Use inverted fade_percentage
+            'fade_opacity': fade_opacity,
             'highlight_color': highlight_color,
             'enable_reinforcement': enable_reinforcement,
             'enable_dance_animation': enable_dance_animation,
             'enable_glow': bool(request.form.get('enable_glow'))
         }
 
-        # Render the template with all necessary variables
-        return render_template('grid.html', 
-                             grid_cols=grid_cols,
-                             fade_opacity=fade_opacity,
-                             fade_duration=fade_duration,
-                             highlight_color=highlight_color,
-                             visible_tags=visible_tags,
-                             image_data_list=image_data_list,
-                             action_type=action_type,
-                             prompt_settings=prompt_settings,
-                             selected_tags=selected_tags,
-                             image_size=image_size,
-                             session_id=session_id)
+        # Package all the data needed for the grid
+        grid_data = {
+            'grid_cols': grid_cols,
+            'fade_opacity': fade_opacity,
+            'fade_duration': fade_duration,
+            'highlight_color': highlight_color,
+            'visible_tags': visible_tags,
+            'show_samples': show_samples,
+            'sample_images': sample_images,
+            'image_data_list': image_data_list,
+            'action_type': action_type,
+            'prompt_settings': prompt_settings,
+            'selected_tags': selected_tags,
+            'image_size': image_size,
+            'session_id': session_id
+        }
+        print("Grid data prepared:")
+        print(f"- visible_tags: {visible_tags}")
+        print(f"- show_samples: {show_samples}")
+        print(f"- sample_images keys: {list(sample_images.keys())}")
+
+        # Render the begin trial template with the grid data
+        return render_template('begin_trial.html', grid_data=json.dumps(grid_data, default=str))
 
     # Initial Form for User Input
     return render_template('config.html')
+
+# Route to handle starting the trial
+@app.route('/start_trial', methods=['POST'])
+def start_trial():
+    try:
+        # Parse the grid data from the form
+        grid_data = json.loads(request.form.get('grid_data', '{}'))
+        print("Starting trial with grid data:")
+        print(f"- visible_tags: {grid_data.get('visible_tags', [])}")
+        print(f"- show_samples: {grid_data.get('show_samples', [])}")
+        print(f"- sample_images keys: {list(grid_data.get('sample_images', {}).keys())}")
+        
+        # Render the grid template with the unpacked data
+        return render_template('grid.html',
+                             grid_cols=grid_data['grid_cols'],
+                             fade_opacity=grid_data['fade_opacity'],
+                             fade_duration=grid_data['fade_duration'],
+                             highlight_color=grid_data['highlight_color'],
+                             visible_tags=grid_data['visible_tags'],
+                             show_samples=grid_data['show_samples'],
+                             sample_images=grid_data['sample_images'],
+                             image_data_list=grid_data['image_data_list'],
+                             action_type=grid_data['action_type'],
+                             prompt_settings=json.dumps(grid_data['prompt_settings']),
+                             selected_tags=grid_data['selected_tags'],
+                             image_size=grid_data['image_size'],
+                             session_id=grid_data['session_id'])
+    except Exception as e:
+        print(f"Error in start_trial: {str(e)}")
+        print(f"Form data: {request.form}")
+        return jsonify({"error": "invalid_data", "message": f"Error processing trial data: {str(e)}"})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5008, debug=True)

@@ -7,11 +7,22 @@
     <div id="mainContent">
         <button id="endTrialBtn">End Trial</button>
         <div id="trialContainer">
-            {% if visible_tags %}
+            {% if action_type == 'click_and_drag' %}
             <div id="targetDropZones">
-                {% for tag in visible_tags %}
+                {% for tag in selected_tags %}
                 <div class="target-drop-zone" data-target="{{ tag }}" data-tags='["{{ tag }}"]'>
+                    {% if show_samples and tag in show_samples %}
+                    <div class="target-sample">
+                        {% if tag in sample_images %}
+                        <img src="data:image/jpeg;base64,{{ sample_images[tag] }}" class="target-sample-image">
+                        {% else %}
+                        <div style="color: red;">No sample image available</div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    {% if tag in visible_tags %}
                     <strong>{{ tag }}</strong>
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>
@@ -44,226 +55,210 @@
         </div>
     </div>
     <script>
-        const promptSettings = JSON.parse('{{ prompt_settings | tojson | safe }}');
+        const promptSettings = {{ prompt_settings | safe }};
         const actionType = '{{ action_type }}';
         const startTime = Date.now();
         const sessionId = '{{ session_id }}';
-        const selectedTags = JSON.parse('{{ selected_tags | tojson | safe }}');
+        const selectedTags = {{ selected_tags | tojson | safe }};
         let trialNumber = 0;
+        let interactionData = [];
 
-        function initializeGrid(actionType, promptSettings) {
-            const {
-                enable_prompting,
-                use_prompt_delay,
-                prompt_delay,
-                prompt_type,
-                fade_duration,
-                fade_opacity,
-                highlight_color,
-                enable_reinforcement,
-                enable_dance_animation,
-                enable_glow
-            } = promptSettings;
-
-            let interactionData = [];
-
-            function handleAction(element, action, imgPath, isCorrect, promptUsed) {
-                const timeTaken = Date.now() - startTime;
-                trialNumber++;
-                logInteraction(element, imgPath, action, isCorrect, timeTaken, promptUsed);
-                if (element && enable_reinforcement) {
-                    updateVisualFeedback(element, isCorrect);
-                }
+        function handleAction(element, action, imgPath, isCorrect, promptUsed) {
+            const timeTaken = Date.now() - startTime;
+            trialNumber++;
+            logInteraction(element, imgPath, action, isCorrect, timeTaken, promptUsed);
+            if (element && promptSettings.enable_reinforcement) {
+                updateVisualFeedback(element, isCorrect);
             }
+        }
 
-            function updateVisualFeedback(element, isCorrect) {
-                element.classList.remove('correct', 'incorrect', 'dance-animation', 'glow');
-                element.classList.add(isCorrect ? 'correct' : 'incorrect');
-                if (enable_glow) {
-                    element.classList.add('glow');
-                }
-                if (isCorrect && enable_dance_animation) {
-                    element.classList.add('dance-animation');
-                    element.addEventListener('animationend', function() {
-                        element.classList.remove('dance-animation');
-                        element.classList.add('correct');
-                        if (enable_glow) {
-                            element.classList.add('glow');
-                        }
-                    }, { once: true });
-                }
+        function updateVisualFeedback(element, isCorrect) {
+            element.classList.remove('correct', 'incorrect', 'dance-animation', 'glow');
+            element.classList.add(isCorrect ? 'correct' : 'incorrect');
+            if (promptSettings.enable_glow) {
+                element.classList.add('glow');
             }
-
-            function logInteraction(element, imgPath, action, isCorrect, timeTaken, promptUsed) {
-                const data = {
-                    session_id: sessionId,
-                    trial_number: trialNumber,
-                    timestamp: new Date().toISOString(),
-                    target_name: getTargetName(imgPath),
-                    image_file_name: imgPath || 'N/A',
-                    time_taken_ms: timeTaken,
-                    prompt_used: promptUsed || 'None',
-                    correct: isCorrect ? 'Correct' : 'Incorrect'
-                };
-                interactionData.push(data);
-                fetch('/log_interaction', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
+            if (isCorrect && promptSettings.enable_dance_animation) {
+                element.classList.add('dance-animation');
+                element.addEventListener('animationend', function() {
+                    element.classList.remove('dance-animation');
+                    element.classList.add('correct');
+                    if (promptSettings.enable_glow) {
+                        element.classList.add('glow');
+                    }
+                }, { once: true });
             }
+        }
 
-            function getTargetName(imgPath) {
-                if (!imgPath) return 'N/A';
-                const container = document.querySelector(`.grid-image-container[data-path='${imgPath}']`);
-                const tags = JSON.parse(container.dataset.tags);
-                return tags.find(tag => selectedTags.includes(tag)) || 'Unknown';
-            }
-
-            function promptByExclusion() {
-                document.querySelectorAll('.grid-image-container[data-correct="false"]').forEach(container => {
-                    container.classList.add('prompt-fade');
-                });
-            }
-
-            function promptByHighlighting() {
-                document.querySelectorAll('.grid-image-container[data-correct="true"]').forEach(container => {
-                    container.style.color = promptSettings.highlight_color;
-                    container.style.borderColor = promptSettings.highlight_color;
-                    container.classList.add('blink-border');
-                });
-            }
-
-            if (actionType === 'click') {
-                document.querySelectorAll('.grid-image-container').forEach(container => {
-                    container.addEventListener('click', function() {
-                        handleAction(this, 'click', this.dataset.path, this.dataset.correct === 'true', prompt_type || 'None');
-                    });
-                });
-            } else if (actionType === 'click_and_drag') {
-                // Bidirectional Drag and Drop Setup
-                const draggableElements = document.querySelectorAll('.grid-image-container, .target-drop-zone');
-
-                draggableElements.forEach(element => {
-                    element.setAttribute('draggable', 'true');
-
-                    element.addEventListener('dragstart', (e) => {
-                        e.dataTransfer.setData('text/plain', null);
-                        element.classList.add('dragging');
-                    });
-
-                    element.addEventListener('dragend', () => {
-                        element.classList.remove('dragging');
-                    });
-                });
-
-                const droppableElements = document.querySelectorAll('.grid-image-container, .target-drop-zone');
-
-                droppableElements.forEach(element => {
-                    element.addEventListener('dragover', e => {
-                        e.preventDefault();
-                    });
-
-                    element.addEventListener('drop', e => {
-                        e.preventDefault();
-                        const draggingElement = document.querySelector('.dragging');
-
-                        if (draggingElement && draggingElement !== element) {
-                            const sourceTags = JSON.parse(draggingElement.dataset.tags || '[]');
-                            const targetTags = JSON.parse(element.dataset.tags || '[]');
-
-                            const isCorrect = sourceTags.some(tag => targetTags.includes(tag));
-                            let imgPath = draggingElement.dataset.path || element.dataset.path || 'N/A';
-
-                            handleAction(element, 'bidirectional_drag', imgPath, isCorrect, prompt_type || 'None');
-
-                            if (enable_reinforcement) {
-                                updateVisualFeedback(draggingElement, isCorrect);
-                                updateVisualFeedback(element, isCorrect);
-                            }
-                        }
-                    });
-                });
-            } else if (actionType === 'manual_data_entry') {
-                const correctBtn = document.querySelector('#manualEntryButtons .correct-btn');
-                const incorrectBtn = document.querySelector('#manualEntryButtons .incorrect-btn');
-
-                correctBtn.addEventListener('click', function() {
-                    handleAction(null, 'manual_entry', null, true, prompt_type || 'None');
-                });
-
-                incorrectBtn.addEventListener('click', function() {
-                    handleAction(null, 'manual_entry', null, false, prompt_type || 'None');
-                });
-            }
-
-            if (enable_prompting && use_prompt_delay && prompt_delay > 0) {
-                setTimeout(() => {
-                    applyPrompt();
-                }, prompt_delay * 1000);
-            } else if (enable_prompting) {
-                applyPrompt();
-            }
-
-            function applyPrompt() {
-                if (prompt_type === 'fade') {
-                    promptByExclusion();
-                } else if (prompt_type === 'highlight') {
-                    promptByHighlighting();
-                }
-            }
-
-            // Add debug logging for End Trial button
-            const endTrialBtn = document.getElementById('endTrialBtn');
-            console.log('End Trial button found:', endTrialBtn);
-            
-            endTrialBtn.addEventListener('click', function() {
-                console.log('End Trial button clicked');
-                showSummary();
-                console.log('Summary shown, preparing to redirect...');
-                setTimeout(() => {
-                    console.log('Redirecting to home...');
-                    window.location.href = '/';
-                }, 2000);
-            });
-
-            document.getElementById('downloadDataBtn').addEventListener('click', function() {
-                window.location.href = '/download_data/' + sessionId;
-            });
-            
-            document.getElementById('returnToConfigBtn').addEventListener('click', function() {
-                window.location.href = '/';
-            });
-
-            function showSummary() {
-                console.log('Showing summary...');
-                const totalTrials = interactionData.length;
-                const correctResponses = interactionData.filter(d => d.correct === 'Correct').length;
-                const incorrectResponses = totalTrials - correctResponses;
-                const accuracy = ((correctResponses / totalTrials) * 100).toFixed(2);
-
-                console.log('Summary data:', { totalTrials, correctResponses, incorrectResponses, accuracy });
-
-                document.getElementById('summaryText').innerHTML = `
-                    Total Trials: ${totalTrials}<br>
-                    Correct Responses: ${correctResponses}<br>
-                    Incorrect Responses: ${incorrectResponses}<br>
-                    Accuracy: ${accuracy}%
-                `;
-                document.getElementById('summaryModal').style.display = 'flex';
-                console.log('Summary modal displayed');
-            }
-
-            window.addEventListener('click', function(event) {
-                if (event.target == document.getElementById('summaryModal')) {
-                    document.getElementById('summaryModal').style.display = 'none';
-                }
+        function logInteraction(element, imgPath, action, isCorrect, timeTaken, promptUsed) {
+            const data = {
+                session_id: sessionId,
+                trial_number: trialNumber,
+                timestamp: new Date().toISOString(),
+                target_name: getTargetName(imgPath),
+                image_file_name: imgPath || 'N/A',
+                time_taken_ms: timeTaken,
+                prompt_used: promptUsed || 'None',
+                correct: isCorrect ? 'Correct' : 'Incorrect'
+            };
+            interactionData.push(data);
+            fetch('/log_interaction', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
             });
         }
 
-        // Initialize the grid when the script loads
-        console.log('Initializing grid with:', { actionType, promptSettings });
-        initializeGrid(actionType, promptSettings);
+        function getTargetName(imgPath) {
+            if (!imgPath) return 'N/A';
+            const container = document.querySelector(`.grid-image-container[data-path='${imgPath}']`);
+            const tags = JSON.parse(container.dataset.tags);
+            return tags.find(tag => selectedTags.includes(tag)) || 'Unknown';
+        }
+
+        function promptByExclusion() {
+            document.querySelectorAll('.grid-image-container[data-correct="false"]').forEach(container => {
+                container.classList.add('prompt-fade');
+            });
+        }
+
+        function promptByHighlighting() {
+            document.querySelectorAll('.grid-image-container[data-correct="true"]').forEach(container => {
+                container.style.color = promptSettings.highlight_color;
+                container.style.borderColor = promptSettings.highlight_color;
+                container.classList.add('blink-border');
+            });
+        }
+
+        // Initialize drag and drop if needed
+        if (actionType === 'click_and_drag') {
+            console.log('Initializing drag and drop...');
+            const draggableElements = document.querySelectorAll('.grid-image-container, .target-drop-zone');
+            console.log('Found draggable elements:', draggableElements.length);
+
+            draggableElements.forEach(element => {
+                element.setAttribute('draggable', 'true');
+                console.log('Made draggable:', element);
+
+                element.addEventListener('dragstart', (e) => {
+                    console.log('Drag started');
+                    e.dataTransfer.setData('text/plain', null);
+                    element.classList.add('dragging');
+                });
+
+                element.addEventListener('dragend', () => {
+                    console.log('Drag ended');
+                    element.classList.remove('dragging');
+                });
+            });
+
+            const droppableElements = document.querySelectorAll('.grid-image-container, .target-drop-zone');
+            console.log('Found droppable elements:', droppableElements.length);
+
+            droppableElements.forEach(element => {
+                element.addEventListener('dragover', e => {
+                    e.preventDefault();
+                    console.log('Drag over');
+                });
+
+                element.addEventListener('drop', e => {
+                    e.preventDefault();
+                    console.log('Drop event');
+                    const draggingElement = document.querySelector('.dragging');
+
+                    if (draggingElement && draggingElement !== element) {
+                        console.log('Processing drop...');
+                        const sourceTags = JSON.parse(draggingElement.dataset.tags || '[]');
+                        const targetTags = JSON.parse(element.dataset.tags || '[]');
+
+                        const isCorrect = sourceTags.some(tag => targetTags.includes(tag));
+                        let imgPath = draggingElement.dataset.path || element.dataset.path || 'N/A';
+
+                        console.log('Drop result:', { sourceTags, targetTags, isCorrect });
+                        handleAction(element, 'bidirectional_drag', imgPath, isCorrect, promptSettings.prompt_type || 'None');
+
+                        if (promptSettings.enable_reinforcement) {
+                            updateVisualFeedback(draggingElement, isCorrect);
+                            updateVisualFeedback(element, isCorrect);
+                        }
+                    }
+                });
+            });
+        }
+
+        // Initialize click handlers if needed
+        if (actionType === 'click') {
+            document.querySelectorAll('.grid-image-container').forEach(container => {
+                container.addEventListener('click', function() {
+                    handleAction(this, 'click', this.dataset.path, this.dataset.correct === 'true', promptSettings.prompt_type || 'None');
+                });
+            });
+        }
+
+        // Initialize manual entry if needed
+        if (actionType === 'manual_data_entry') {
+            const correctBtn = document.querySelector('#manualEntryButtons .correct-btn');
+            const incorrectBtn = document.querySelector('#manualEntryButtons .incorrect-btn');
+
+            correctBtn.addEventListener('click', function() {
+                handleAction(null, 'manual_entry', null, true, promptSettings.prompt_type || 'None');
+            });
+
+            incorrectBtn.addEventListener('click', function() {
+                handleAction(null, 'manual_entry', null, false, promptSettings.prompt_type || 'None');
+            });
+        }
+
+        // Initialize prompting if enabled
+        if (promptSettings.enable_prompting) {
+            if (promptSettings.use_prompt_delay && promptSettings.prompt_delay > 0) {
+                setTimeout(() => {
+                    if (promptSettings.prompt_type === 'fade') {
+                        promptByExclusion();
+                    } else if (promptSettings.prompt_type === 'highlight') {
+                        promptByHighlighting();
+                    }
+                }, promptSettings.prompt_delay * 1000);
+            } else {
+                if (promptSettings.prompt_type === 'fade') {
+                    promptByExclusion();
+                } else if (promptSettings.prompt_type === 'highlight') {
+                    promptByHighlighting();
+                }
+            }
+        }
+
+        // Initialize end trial button
+        document.getElementById('endTrialBtn').addEventListener('click', function() {
+            const summaryModal = document.getElementById('summaryModal');
+            const totalTrials = interactionData.length;
+            const correctResponses = interactionData.filter(d => d.correct === 'Correct').length;
+            const incorrectResponses = totalTrials - correctResponses;
+            const accuracy = ((correctResponses / totalTrials) * 100).toFixed(2);
+
+            document.getElementById('summaryText').innerHTML = `
+                Total Trials: ${totalTrials}<br>
+                Correct Responses: ${correctResponses}<br>
+                Incorrect Responses: ${incorrectResponses}<br>
+                Accuracy: ${accuracy}%
+            `;
+            summaryModal.style.display = 'flex';
+        });
+
+        document.getElementById('downloadDataBtn').addEventListener('click', function() {
+            window.location.href = '/download_data/' + sessionId;
+        });
+
+        document.getElementById('returnToConfigBtn').addEventListener('click', function() {
+            window.location.href = '/';
+        });
+
+        window.addEventListener('click', function(event) {
+            const summaryModal = document.getElementById('summaryModal');
+            if (event.target === summaryModal) {
+                summaryModal.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html> 
