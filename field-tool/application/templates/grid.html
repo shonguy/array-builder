@@ -55,12 +55,11 @@
         </div>
     </div>
     <script>
-        // Convert the template variables to proper JavaScript
-        const promptSettings = JSON.parse('{{ prompt_settings | tojson | safe }}');
-        const actionType = "{{ action_type }}";
+        const promptSettings = {{ prompt_settings | safe }};
+        const actionType = '{{ action_type }}';
         const startTime = Date.now();
-        const sessionId = "{{ session_id }}";
-        const selectedTags = JSON.parse('{{ selected_tags | tojson | safe }}');
+        const sessionId = '{{ session_id }}';
+        const selectedTags = {{ selected_tags | tojson | safe }};
         let trialNumber = 0;
         let interactionData = [];
 
