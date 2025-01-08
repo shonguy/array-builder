@@ -214,7 +214,7 @@
             // Prepare antecedent data
             const antecedentInputs = document.querySelectorAll('#antecedentInputs .target-input');
             const antecedentData = Array.from(antecedentInputs).map(input => ({
-                tag: input.querySelector('input[name="antecedent_tag"]').value,
+                tag: input.querySelector('input[name="antecedent_tag"]').value.toLowerCase(),
                 visible: input.querySelector('input[name="visible_target"]').checked,
                 show_sample: input.querySelector('input[name="show_sample_image"]').checked
             }));
